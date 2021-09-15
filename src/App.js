@@ -1,24 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+
+import { Fragment, useState, useRef } from 'react';
+import BotonOso from './components/botonOso';
+import BotonPerro from './components/botonPerro';
+import BotonTiburon from './components/botonTiburon';
+import BotonTigre from './components/botonTigre';
+import BotonTortuga from './components/botonTortuga';
+import './App.css'
+
 
 function App() {
+
+
+  const [src, setSrc] = useState("");
+
+  const id = useRef(); 
+
+  const insertImg = (url) => {
+
+    setSrc(url)
+  
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment>
+      <BotonOso insertImg = {insertImg} />
+      <BotonPerro insertImg = {insertImg}/>
+      <BotonTigre insertImg = {insertImg}/>
+      <BotonTiburon insertImg = {insertImg}/>
+      <BotonTortuga insertImg = {insertImg}/>
+      <hr></hr>
+      <img  src = {src}></img>
+
+    </Fragment>
   );
 }
 
